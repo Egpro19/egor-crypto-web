@@ -1,0 +1,136 @@
+:root{
+    --primary: #1B1E23;
+    --blue: #2B78E6;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+@keyframes animation{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes rotate{
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.loading{
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.loading::after{
+    content: "";
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border-radius: 100%;
+    border: 6px solid #fff;
+    border-color: var(--blue) transparent var(--blue) transparent;
+    animation-name: rotate;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+main{
+    position: relative;
+}
+
+table{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin: 50px auto;
+    border-collapse: collapse;
+    overflow-x: auto;
+    font-size: 1vw;
+}
+
+table tr{
+    animation-name: animation;
+    animation-duration: 2s;
+    transition: all 0.5s;
+}
+
+table .tr:hover{
+    transform: translateX(-50px);
+}
+
+table th{
+    width: 200px;
+    background-color: white;
+    padding: 10px 0;
+}
+
+table td{
+    background-color: #eee;
+    text-align: center;
+    padding: 10px 0;
+    border-bottom: 1px solid black;
+}
+
+table .transparent{
+    background: transparent;
+}
+
+table .action{
+    background-color: var(--blue);
+    color: white;
+    cursor: pointer;
+}
+
+.web-top{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: auto;
+    height: 20vh;
+    background-image: linear-gradient(hsla(218, 13%, 12%, 0.400), hsla(218, 13%, 12%, 0.400)),url(../img/imageBack.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.web-top h1{
+    margin-left: 20%;
+    color: white;
+    font-weight: 300;
+    font-size: 4vw;
+    letter-spacing: 5px;
+}
+
+body{
+    background-color: var(--primary);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+@media (max-width: 1000px) {
+    table{
+        font-size: 2vw;
+    }
+}
+
+@media (max-width: 500px) {
+    table{
+        font-size: 3vw;
+    }
+}
